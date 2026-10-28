@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" rx="40" fill="#eef4fb"/>
+  <circle cx="470" cy="120" r="55" fill="#ffd54a"/>
+  <!-- Elektros perdavimo atrama -->
+  <g stroke="#2b3a55" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M300 110 L230 520 M300 110 L370 520"/>
+    <path d="M190 200 L410 200 M215 290 L385 290"/>
+    <path d="M262 330 L338 420 M338 330 L262 420 M248 420 L352 420"/>
+    <path d="M270 200 L300 110 L330 200"/>
+  </g>
+  <!-- Laidai -->
+  <g stroke="#2b3a55" stroke-width="4" fill="none">
+    <path d="M0 230 Q95 260 190 200 Q300 250 410 200 Q505 260 600 230"/>
+    <path d="M0 320 Q105 345 215 290 Q300 330 385 290 Q495 345 600 320"/>
+  </g>
+  <!-- Žaibo ženklas -->
+  <path d="M120 360 L80 450 L115 450 L95 530 L160 425 L125 425 L150 360 Z" fill="#f5a623"/>
+  <!-- Saulės modulis -->
+  <g transform="translate(410 430)">
+    <rect width="130" height="80" rx="6" fill="#2f6fb5"/>
+    <path d="M43 0 V80 M87 0 V80 M0 40 H130" stroke="#eef4fb" stroke-width="4"/>
+    <path d="M65 80 V110" stroke="#2b3a55" stroke-width="8"/>
+  </g>
+  <rect x="0" y="520" width="600" height="80" fill="#cfdcec"/>
+</svg>
