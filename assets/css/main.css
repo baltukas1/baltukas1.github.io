@@ -2853,16 +2853,3 @@ section,
 .starter-section {
   /* Add your styles here */
 }
-/*--------------------------------------------------------------
-# Paslaugų kainų lentelė
---------------------------------------------------------------*/
-.services-table .table {
-  --bs-table-bg: var(--surface-color);
-  --bs-table-color: var(--default-color);
-  --bs-table-border-color: color-mix(in srgb, var(--default-color), transparent 85%);
-}
-
-.services-table .table thead th {
-  background-color: var(--accent-color);
-  color: var(--contrast-color, #ffffff);
-}

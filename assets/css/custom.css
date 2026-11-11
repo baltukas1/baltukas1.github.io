@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Source+Sans+3:wght@400;600&display=swap");
+
+/* Spalvos */
+:root {
+  --accent-color: #f5b301;
+  --accent-dark: #d99a00;
+  --contrast-color: #0b1419;
+  --nav-hover-color: #f5b301;
+  --nav-dropdown-hover-color: #f5b301;
+}
+
+/* 2a */
+:root {
+  --default-font: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Montserrat", sans-serif;
+}
+
+body {
+  font-size: 17px;
+}
+
+/* 2b */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  letter-spacing: 0.2px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-title h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  background: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.4rem; }
+  .section-title h2 { font-size: 2.1rem; }
+}
+
+/* 2c */
+p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #d3e1e8;
+  margin-bottom: 1.1rem;
+}
+
+/* 3a */
+.hero .hero-actions .btn,
+.portfolio .btn-primary,
+.about .intro-content .cta-group .btn-ghost {
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.hero .hero-actions .btn.btn-primary,
+.portfolio .btn-primary {
+  background: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  color: var(--contrast-color);
+  box-shadow: 0 6px 18px rgba(245, 179, 1, 0.25);
+}
+
+.hero .hero-actions .btn.btn-outline,
+.about .intro-content .cta-group .btn-ghost {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.hero .hero-actions .btn.btn-primary:hover,
+.portfolio .btn-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: var(--contrast-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(245, 179, 1, 0.35);
+}
+
+.hero .hero-actions .btn.btn-outline:hover,
+.about .intro-content .cta-group .btn-ghost:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-3px);
+}
+
+.hero .hero-actions .btn:active,
+.portfolio .btn-primary:active,
+.about .intro-content .cta-group .btn-ghost:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: none;
+}
+
+/* 3b */
+a {
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: #ffd45c;
+}
+
+.about .intro-content .cta-group .link-underline {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.about .intro-content .cta-group .link-underline:hover {
+  color: #ffd45c;
+}
+
+.footer .credits a {
+  color: var(--accent-color);
+  border-bottom: 1px dashed var(--accent-color);
+}
+
+.footer .credits a:hover {
+  color: #ffd45c;
+  border-bottom-style: solid;
+}
+
+/* 4a */
+.about.section,
+.skills.section,
+.resume.section,
+.portfolio.section {
+  padding: 90px 0 70px;
+}
+
+.about .section-title,
+.resume .section-title,
+.portfolio .section-title {
+  padding-bottom: 40px;
+}
+
+.resume .resume-item {
+  margin-bottom: 2.5rem;
+}
+
+.portfolio .portfolio-card {
+  margin-bottom: 10px;
+}
+
+/* 4b */
+.about .intro-content {
+  background: var(--surface-color);
+  border: 1px solid rgba(245, 179, 1, 0.25);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.about .profile-figure .profile-photo {
+  border: 4px solid var(--accent-color);
+  border-radius: 24px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+
+.skills .skill-box {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 4px solid var(--accent-color);
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+}
+
+.resume .resume-item {
+  background: var(--surface-color);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 5px solid var(--accent-color);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio .portfolio-card {
+  border: 1px solid rgba(245, 179, 1, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio .portfolio-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio .portfolio-card .portfolio-info {
+  padding: 22px 24px 26px;
+}
+
+/* 5 – navigacijos juosta */
+.header {
+  background-color: rgba(11, 20, 25, 0.92);
+  border-bottom: 2px solid var(--accent-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  padding: 10px 0;
+  backdrop-filter: blur(8px);
+}
+
+/* 5 – „į viršų“ mygtukas */
+.scroll-top {
+  background-color: var(--accent-color);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 2px solid #ffd45c;
+  box-shadow: 0 8px 20px rgba(245, 179, 1, 0.4);
+}
+
+.scroll-top i {
+  color: var(--contrast-color);
+}
+
+.scroll-top:hover {
+  background-color: var(--accent-dark);
+}
+
+/* 5 – progreso juostos */
+.skills .skill-box .progress,
+.resume .skill-item .progress {
+  height: 12px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.skills .skill-box .progress .progress-bar,
+.resume .skill-item .progress .progress-bar {
+  background: linear-gradient(90deg, #f5b301, #ff7a00);
+  border-radius: 20px;
+}
+
+/* PAPILDOMA UŽDUOTIS */
+/* 1a – nenumeruotas sąrašas */
+.services-lists ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.services-lists ul > li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 10px;
+}
+
+.services-lists ul > li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 1b – įdėtinis sąrašas */
+.services-lists ul ul {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 10px 10px 0;
+  background: rgba(245, 179, 1, 0.06);
+}
+
+.services-lists ul ul > li {
+  padding-left: 22px;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #c3d3db;
+}
+
+.services-lists ul ul > li::before {
+  content: "›";
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* 1a – numeruotas sąrašas */
+.services-lists ol {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: etapas;
+}
+
+.services-lists ol > li {
+  counter-increment: etapas;
+  position: relative;
+  padding-left: 46px;
+  margin-bottom: 14px;
+  min-height: 32px;
+  line-height: 32px;
+}
+
+.services-lists ol > li::before {
+  content: counter(etapas);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-align: center;
+  line-height: 32px;
+}
+
+/* 2 – lentelė */
+.services-table .table {
+  --bs-table-bg: var(--surface-color);
+  --bs-table-color: var(--default-color);
+  --bs-table-border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 2c */
+.services-table .table th,
+.services-table .table td {
+  padding: 14px 18px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* 2a */
+.services-table .table thead th {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--accent-dark);
+}
+
+/* 2b */
+.services-table .table tbody tr:nth-child(even) > td {
+  background-color: #1b2a33;
+}
+
+.services-table .table tbody tr:hover > td {
+  background-color: rgba(245, 179, 1, 0.15);
+  color: #ffffff;
+}
