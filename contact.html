@@ -85,17 +85,17 @@
         <div class="row g-4 g-lg-5">
           <div class="col-lg-5">
             <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-              <h3>Contact Info</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <h3>Mūsų kontaktai</h3>
+              <p>Žemiau yra pateikti kontaktai, kuriais galite susisiekti arba atvykti nurodytu adresu.</p>
 
               <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
                   <i class="bi bi-geo-alt"></i>
                 </div>
                 <div class="content">
-                  <h4>Our Location</h4>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <h4>Mūsų būstinė</h4>
+                  <p>Av. Severo Ochoa, 8</p>
+                  <p>29603 Marbella, Málaga, Ispanija</p>
                 </div>
               </div>
 
@@ -104,9 +104,9 @@
                   <i class="bi bi-telephone"></i>
                 </div>
                 <div class="content">
-                  <h4>Phone Number</h4>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
+                  <h4>Telefono numeris</h4>
+                  <p>+3706590009</p>
+                  <p>+3706789123</p>
                 </div>
               </div>
 
@@ -115,9 +115,9 @@
                   <i class="bi bi-envelope"></i>
                 </div>
                 <div class="content">
-                  <h4>Email Address</h4>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
+                  <h4>Pašto adresas</h4>
+                  <p>Paulius@gmail.com</p>
+                  <p>PauliusSolutionss@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -125,38 +125,64 @@
 
           <div class="col-lg-7">
             <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Get In Touch</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <h3>Susisiekite</h3>
+              <p>Užpildykite formą ir įvertinkite svetainę.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form id="kontaktu-forma" novalidate data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input type="text" name="vardas" class="form-control" placeholder="Vardas" required>
+                    <div class="klaida-tekstas"></div>
                   </div>
 
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <div class="col-md-6">
+                    <input type="text" name="pavarde" class="form-control" placeholder="Pavardė" required>
+                    <div class="klaida-tekstas"></div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="email" name="email" class="form-control" placeholder="El. paštas" required>
+                    <div class="klaida-tekstas"></div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="tel" name="telefonas" class="form-control" placeholder="Tel. numeris (+370 6xx xxxxx)" maxlength="14" required>
+                    <div class="klaida-tekstas"></div>
                   </div>
 
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    <input type="text" name="adresas" class="form-control" placeholder="Adresas" required>
+                    <div class="klaida-tekstas"></div>
                   </div>
 
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <div class="col-md-4">
+                    <label for="klausimas1">Kaip vertinate svetainės dizainą? (1–10)</label>
+                    <input type="number" id="klausimas1" name="klausimas1" class="form-control vertinimas" min="1" max="10" required>
+                    <div class="klaida-tekstas"></div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="klausimas2">Kaip vertinate pateiktą informaciją? (1–10)</label>
+                    <input type="number" id="klausimas2" name="klausimas2" class="form-control vertinimas" min="1" max="10" required>
+                    <div class="klaida-tekstas"></div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label for="klausimas3">Ar rekomenduotumėte mane kitiems? (1–10)</label>
+                    <input type="number" id="klausimas3" name="klausimas3" class="form-control vertinimas" min="1" max="10" required>
+                    <div class="klaida-tekstas"></div>
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" id="siusti-btn" class="btn" disabled>Siųsti</button>
+                    <button type="button" id="isvalyti-btn" class="btn btn-isvalyti">Išvalyti</button>
                   </div>
 
                 </div>
               </form>
+
+              <div id="formos-rezultatas"></div>
 
             </div>
           </div>
@@ -212,6 +238,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
