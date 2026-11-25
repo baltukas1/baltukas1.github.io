@@ -694,3 +694,31 @@ a:hover {
   font-size: 0.85rem;
   color: #ff6b6b;
 }
+
+/* ===== 12 LD ===== */
+
+/* 2 – būsenos pasirinkimas */
+.skill-select {
+  display: block;
+  margin-top: 8px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  color: #e7f2f7;
+  background: #101a20;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.skill-select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.kanban-list {
+  min-height: 60px;
+}
+
+.xp-bar-fill {
+  transition: width 0.4s ease;
+}

@@ -86,31 +86,31 @@
         <div class="xp-info">
           <div class="xp-box">
             <i class="bi bi-star"></i>
-            <div><span>Bendra XP</span><strong>180 XP</strong></div>
+            <div><span>Bendra XP</span><strong id="xp-suma">0 XP</strong></div>
           </div>
           <div class="xp-box">
             <i class="bi bi-bar-chart"></i>
-            <div><span>Lygis</span><strong>3</strong></div>
+            <div><span>Lygis</span><strong id="xp-lygis">1</strong></div>
           </div>
           <div class="xp-box">
             <i class="bi bi-trophy"></i>
-            <div><span>Rangas</span><strong>Specialistas</strong></div>
+            <div><span>Rangas</span><strong id="xp-rangas">Pradedantysis</strong></div>
           </div>
         </div>
 
         <!-- Progreso juosta -->
         <div class="xp-progress">
-          <p>Progresas iki kito lygio (180 / 300 XP)</p>
+          <p id="progreso-tekstas">Progresas iki kito lygio</p>
           <div class="xp-bar">
-            <div class="xp-bar-fill" style="width: 20%;">20%</div>
+            <div class="xp-bar-fill" id="progreso-juosta" style="width: 0%;">0%</div>
           </div>
         </div>
 
         <!-- Statistika -->
         <div class="skill-stats">
-          <div class="stat"><i class="bi bi-list-check"></i> Įgūdžiai: <strong>8</strong></div>
-          <div class="stat"><i class="bi bi-check-circle"></i> Atlikta: <strong>4</strong></div>
-          <div class="stat"><i class="bi bi-pie-chart"></i> Procentas: <strong>50%</strong></div>
+          <div class="stat"><i class="bi bi-list-check"></i> Įgūdžiai: <strong id="stat-viso">0</strong></div>
+          <div class="stat"><i class="bi bi-check-circle"></i> Atlikta: <strong id="stat-atlikta">0</strong></div>
+          <div class="stat"><i class="bi bi-pie-chart"></i> Procentas: <strong id="stat-procentas">0%</strong></div>
         </div>
 
         <!-- Įgūdžių lenta (Kanban) -->
@@ -118,87 +118,19 @@
 
           <div class="kanban-column planuojama">
             <h3><i class="bi bi-calendar-event"></i> Planuojama</h3>
-
-              <div class="skill-card">
-                <i class="bi bi-shield-check"></i>
-                <div>
-                  <h4>Relinė apsauga</h4>
-                  <span class="skill-status">Būsena: Planuojama</span>
-                  <span class="skill-xp">XP: 80</span>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <i class="bi bi-cpu"></i>
-                <div>
-                  <h4>PLC programavimas</h4>
-                  <span class="skill-status">Būsena: Planuojama</span>
-                  <span class="skill-xp">XP: 50</span>
-                </div>
-              </div>
+            <div class="kanban-list" id="sarasas-Planuojama"></div>
           </div>
 
           <div class="kanban-column mokomasi">
             <h3><i class="bi bi-book"></i> Mokomasi</h3>
-
-              <div class="skill-card">
-                <i class="bi bi-graph-up"></i>
-                <div>
-                  <h4>MATLAB modeliavimas</h4>
-                  <span class="skill-status">Būsena: Mokomasi</span>
-                  <span class="skill-xp">XP: 40</span>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <i class="bi bi-sun"></i>
-                <div>
-                  <h4>Saulės elektrinių projektavimas</h4>
-                  <span class="skill-status">Būsena: Mokomasi</span>
-                  <span class="skill-xp">XP: 70</span>
-                </div>
-              </div>
+            <div class="kanban-list" id="sarasas-Mokomasi"></div>
           </div>
 
           <div class="kanban-column atlikta">
             <h3><i class="bi bi-check-circle"></i> Atlikta</h3>
-
-              <div class="skill-card">
-                <i class="bi bi-lightning-charge"></i>
-                <div>
-                  <h4>Elektros grandinių skaičiavimas</h4>
-                  <span class="skill-status">Būsena: Atlikta</span>
-                  <span class="skill-xp">XP: 50</span>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <i class="bi bi-pencil-square"></i>
-                <div>
-                  <h4>AutoCAD brėžiniai</h4>
-                  <span class="skill-status">Būsena: Atlikta</span>
-                  <span class="skill-xp">XP: 40</span>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <i class="bi bi-plug"></i>
-                <div>
-                  <h4>Elektros instaliacijos projektavimas</h4>
-                  <span class="skill-status">Būsena: Atlikta</span>
-                  <span class="skill-xp">XP: 60</span>
-                </div>
-              </div>
-
-              <div class="skill-card">
-                <i class="bi bi-lightbulb"></i>
-                <div>
-                  <h4>Apšvietimo skaičiavimas</h4>
-                  <span class="skill-status">Būsena: Atlikta</span>
-                  <span class="skill-xp">XP: 30</span>
-                </div>
-              </div>
+            <div class="kanban-list" id="sarasas-Atlikta"></div>
           </div>
+
         </div>
 
       </div>
@@ -250,6 +182,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 

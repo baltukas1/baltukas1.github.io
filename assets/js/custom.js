@@ -137,3 +137,155 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
+
+// 12 LD
+document.addEventListener('DOMContentLoaded', function () {
+
+  if (!document.getElementById('sarasas-Atlikta')) return;
+
+  // 1 – įgūdžių masyvas
+  const pradiniaiIgudziai = [
+    { pavadinimas: 'Relinė apsauga', busena: 'Planuojama', xp: 80, ikona: 'bi-shield-check' },
+    { pavadinimas: 'PLC programavimas', busena: 'Planuojama', xp: 50, ikona: 'bi-cpu' },
+    { pavadinimas: 'MATLAB modeliavimas', busena: 'Mokomasi', xp: 40, ikona: 'bi-graph-up' },
+    { pavadinimas: 'Saulės elektrinių projektavimas', busena: 'Mokomasi', xp: 70, ikona: 'bi-sun' },
+    { pavadinimas: 'Elektros grandinių skaičiavimas', busena: 'Atlikta', xp: 50, ikona: 'bi-lightning-charge' },
+    { pavadinimas: 'AutoCAD brėžiniai', busena: 'Atlikta', xp: 40, ikona: 'bi-pencil-square' },
+    { pavadinimas: 'Elektros instaliacijos projektavimas', busena: 'Atlikta', xp: 60, ikona: 'bi-plug' },
+    { pavadinimas: 'Apšvietimo skaičiavimas', busena: 'Atlikta', xp: 30, ikona: 'bi-lightbulb' }
+  ];
+
+  const busenos = ['Planuojama', 'Mokomasi', 'Atlikta'];
+
+  // PAPILDOMA 1 – Local Storage
+  function ikeltiIgudzius() {
+    const issaugoti = localStorage.getItem('igudziai');
+    if (issaugoti) {
+      return JSON.parse(issaugoti);
+    }
+    return pradiniaiIgudziai;
+  }
+
+  function issaugotiIgudzius() {
+    localStorage.setItem('igudziai', JSON.stringify(igudziai));
+  }
+
+  let igudziai = ikeltiIgudzius();
+
+  // 1, 2 – kortelių atvaizdavimas ir būsenos keitimas
+  function piestiKorteles() {
+    busenos.forEach(function (busena) {
+      document.getElementById('sarasas-' + busena).innerHTML = '';
+    });
+
+    igudziai.forEach(function (igudis, indeksas) {
+      const kortele = document.createElement('div');
+      kortele.className = 'skill-card';
+
+      const ikona = document.createElement('i');
+      ikona.className = 'bi ' + igudis.ikona;
+
+      const turinys = document.createElement('div');
+
+      const pavadinimas = document.createElement('h4');
+      pavadinimas.textContent = igudis.pavadinimas;
+
+      const xp = document.createElement('span');
+      xp.className = 'skill-xp';
+      xp.textContent = 'XP: ' + igudis.xp;
+
+      const pasirinkimas = document.createElement('select');
+      pasirinkimas.className = 'skill-select';
+      busenos.forEach(function (busena) {
+        const variantas = document.createElement('option');
+        variantas.value = busena;
+        variantas.textContent = busena;
+        if (busena === igudis.busena) {
+          variantas.selected = true;
+        }
+        pasirinkimas.appendChild(variantas);
+      });
+
+      pasirinkimas.addEventListener('change', function () {
+        igudziai[indeksas].busena = pasirinkimas.value;
+        atnaujintiModuli();
+      });
+
+      turinys.appendChild(pavadinimas);
+      turinys.appendChild(xp);
+      turinys.appendChild(pasirinkimas);
+      kortele.appendChild(ikona);
+      kortele.appendChild(turinys);
+
+      document.getElementById('sarasas-' + igudis.busena).appendChild(kortele);
+    });
+  }
+
+  // 3 – XP, lygis ir rangas
+  function skaiciuotiXP() {
+    let suma = 0;
+    igudziai.forEach(function (igudis) {
+      if (igudis.busena === 'Atlikta') {
+        suma += igudis.xp;
+      }
+    });
+    return suma;
+  }
+
+  function gautiLygi(xp) {
+    if (xp >= 300) return { lygis: 4, rangas: 'Profesionalas', nuo: 300, iki: 300 };
+    if (xp >= 150) return { lygis: 3, rangas: 'Specialistas', nuo: 150, iki: 300 };
+    if (xp >= 50) return { lygis: 2, rangas: 'Praktikantas', nuo: 50, iki: 150 };
+    return { lygis: 1, rangas: 'Pradedantysis', nuo: 0, iki: 50 };
+  }
+
+  // 3, 4 – informacija ir progreso juosta
+  function atnaujintiProgresa() {
+    const xp = skaiciuotiXP();
+    const lygis = gautiLygi(xp);
+
+    document.getElementById('xp-suma').textContent = xp + ' XP';
+    document.getElementById('xp-lygis').textContent = lygis.lygis;
+    document.getElementById('xp-rangas').textContent = lygis.rangas;
+
+    let procentai = 100;
+    let tekstas = 'Pasiektas maksimalus lygis (' + xp + ' XP)';
+    if (lygis.lygis < 4) {
+      procentai = Math.round((xp - lygis.nuo) / (lygis.iki - lygis.nuo) * 100);
+      tekstas = 'Progresas iki kito lygio (' + xp + ' / ' + lygis.iki + ' XP)';
+    }
+
+    const juosta = document.getElementById('progreso-juosta');
+    juosta.style.width = procentai + '%';
+    juosta.textContent = procentai + '%';
+    document.getElementById('progreso-tekstas').textContent = tekstas;
+  }
+
+  // 5 – statistika
+  function atnaujintiStatistika() {
+    const viso = igudziai.length;
+    let atlikta = 0;
+    igudziai.forEach(function (igudis) {
+      if (igudis.busena === 'Atlikta') {
+        atlikta++;
+      }
+    });
+    const procentas = Math.round(atlikta / viso * 100);
+
+    document.getElementById('stat-viso').textContent = viso;
+    document.getElementById('stat-atlikta').textContent = atlikta;
+    document.getElementById('stat-procentas').textContent = procentas + '%';
+  }
+
+  // 7 – viskas atnaujinama kartu
+  function atnaujintiModuli() {
+    piestiKorteles();
+    atnaujintiProgresa();
+    atnaujintiStatistika();
+    issaugotiIgudzius();
+  }
+
+  atnaujintiModuli();
+
+});
